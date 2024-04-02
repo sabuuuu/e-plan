@@ -22,18 +22,18 @@ const Table = ({exams, salles }) => {
             return Array.from(new Set(salles.map((salle) => salle.type)))
         })   
     return (
-        <div className="overflow-x-auto rounded-lg">
+        <div className="w-full overflow-x-auto rounded-lg">
             <div className="align-middle inline-block min-w-full ">
                 <table className="min-w-full ">
                 <thead>
                     <tr>
-                        <th className="px-6 py-3 bg-blue-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Nom</th>
-                        <th className="px-6 py-3 bg-blue-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Date</th>
-                        <th className="px-6 py-3 bg-blue-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Horraire</th>
-                        <th className="px-6 py-3 bg-blue-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider">Lieu</th>
+                        <th className="px-6 py-3 bg-indigo-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Nom</th>
+                        <th className="px-6 py-3 bg-indigo-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Date</th>
+                        <th className="px-6 py-3 bg-indigo-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider border-r border-black">Horraire</th>
+                        <th className="px-6 py-3 bg-indigo-950 text-center text-xs leading-4 font-medium text-gray-200 uppercase tracking-wider">Lieu</th>
                     </tr>
                 </thead>
-                <tbody className="bg-blue-900 divide-y divide-gray-200">
+                <tbody className="bg-indigo-900 divide-y divide-gray-200">
                     <tr>
                     <td className="px-6 py-4 whitespace-no-wrap ">
                         <ul className="list-inside text-white">

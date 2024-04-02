@@ -1,14 +1,16 @@
 import React from 'react';
+import Logo from "/assets/logo.png";
+import Lg from "/assets/lg2.png";
 
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4 mb-6 flex justify-between">
-      <h1 className="text-2xl font-bold text-white">Logo</h1>
-      <ul className="flex space-x-4">
-        <li><a href="#" className="text-white px-4 py-2 rounded hover:bg-gray-700">Home</a></li>
-        <li><a href="#" className="text-white px-4 py-2 rounded hover:bg-gray-700">About</a></li>
-        <li><a href="#" className="text-white px-4 py-2 rounded hover:bg-gray-700">Services</a></li>
-        <li><a href="#" className="text-white px-4 py-2 rounded hover:bg-gray-700">Contact</a></li>
+      <div className='flex items-center space-x-2'>
+        <img src={Logo} className="h-14" />
+        <img src={Lg} className="h-6" />
+      </div>
+      <ul className="flex items-center">
+        <li><a href="#" className="text-white font-semibold  border border-indigo-900 px-6 py-3 rounded hover:bg-gray-700">A propos</a></li>
       </ul>
     </nav>
   );

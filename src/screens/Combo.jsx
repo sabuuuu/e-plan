@@ -13,13 +13,13 @@ const Combobox = ({ options, selectedValue, onChange }) => {
     <select
         value={selected}
         onChange={handleChange}
-        className="w-full border border-gray-300 rounded-md px-4 py-2"
+        className="w-3/4 border border-none rounded-md px-4 py-2 mb-2 bg-gray-800 "
         >
         {options.map((option) => (
             <option
             key={option.value}
             value={option.value}
-            className="bg-white text-gray-800"
+            className=" text-gray-200 border-none rounded-md px-4 py-2 mb-2 font-body focus:border-none"
             >
             {option.label}
             </option>
