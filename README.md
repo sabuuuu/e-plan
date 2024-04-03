@@ -1,4 +1,5 @@
 # E - Plan
+![E-Plan logo](https://github.com/sabuuuu/e-plan/blob/main/lg.png)
 E-Plan est un projet universitaire développé pour les Facultés dans le but de créer des emplois du temps d'examens pour toutes les filières et spécialités. Les étudiants et les professeurs peuvent consulter ces emplois du temps afin de connaître les dates et horaires des examens.
 
 ## Fonctionnalités
