@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from "/assets/logo.png";
 import Lg from "/assets/lg2.png";
+import Help from "/assets/help.gif";
 
 const Navbar = () => {
   return (
@@ -9,9 +10,9 @@ const Navbar = () => {
         <img src={Logo} className="h-14" />
         <img src={Lg} className="h-6" />
       </div>
-      <ul className="flex items-center">
-        <li><a href="#" className="text-white font-semibold  border border-indigo-900 px-6 py-3 rounded hover:bg-gray-700">A propos</a></li>
-      </ul>
+      <button className="flex items-center text-white font-semibold  border border-indigo-900 px-6  rounded hover:bg-gray-700">
+        <img src={Help} className="h-16" />
+      </button>
     </nav>
   );
 };
