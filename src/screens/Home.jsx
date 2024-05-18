@@ -117,7 +117,7 @@ function Home() {
           return; 
         }
         setErrorMessage(null);
-        const res = await axios.get('http://localhost:5555/plannings/filtre' ,{ params: filters });
+        const res = await axios.get('https://eplan-backend.onrender.com/plannings/filtre' ,{ params: filters });
         const data = res.data;
         setPlannings(data);
         // Check for empty results and set appropriate message
