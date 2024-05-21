@@ -276,8 +276,8 @@ function Home() {
         </div>
 
         {/* space to add the table */}
-        <div className="w-full md:w-2/3 p-6 flex flex-col items-center justify-center">
-          {plannings.length > 0 ?(
+        <div className="w-full md:w-2/3 p-4 flex flex-col items-center justify-center">
+        {plannings.length > 0 ?(
                       <div className='flex justify-between items-center text-gray-300 font-semibold text-xl mb-4 px-8'>
                       <div>
                         <img src={Logo} className=' rounded-xl w-2/3' />
@@ -304,7 +304,7 @@ function Home() {
                 annee={annee}
                 semestre={semestre}
                 session={session} />
-          <div className="m-20">
+                          <div className="m-20">
           </div>
         </div>
       </div>
