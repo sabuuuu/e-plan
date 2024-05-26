@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Cal from '/assets/calendar.jpg'
 import Divider from '@mui/material/Divider';
+import { ThemeContext } from './ThemeContext';
 function About() {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="font-body text-white flex flex-col min-h-screen bg-gray-900">
+    <div className={`font-body text-white flex flex-col min-h-screen  ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-200'}`}>
         <Navbar/>
         <div className='flex items-center justify-center px-8 py-4'>
-        <div className='w-2/3 text-gray-300 px-4'>
+        <div className={`'w-2/3 px-4' ${theme === 'dark' ? 'text-gray-300 ' : 'text-gray-700 '}`}>
           <div className='flex items-center justify-around px-8 py-4'>
-            <h1 className='lg:text-2xl text-xl font-bold font-body text-white'>
+            <h1 className={`lg:text-2xl text-xl font-bold font-body  ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
               A propos de l'application
             </h1>
           </div>
@@ -26,10 +28,10 @@ function About() {
       <div className=' px-28 '>
         <Divider orientation="horizontal" variant="middle" flexItem style={{backgroundColor: 'white'}}/>
       </div>
-      <div className='flex items-center justify-center px-8 py-4 '>
-        <div className='w-2/3 text-gray-300 px-4'>
+      <div className='flex items-center justify-center px-8 py-4'>
+      <div className={`'w-2/3 px-4' ${theme === 'dark' ? 'text-gray-300 ' : 'text-gray-700 '}`}>
           <div className='flex items-center justify-around px-8 py-4'>
-            <h1 className='lg:text-2xl text-xl font-bold font-body text-white'>
+          <h1 className={`lg:text-2xl text-xl font-bold font-body  ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
               Contactez-nous
             </h1>
           </div>
@@ -37,7 +39,7 @@ function About() {
           Nous nous efforçons de créer une expérience conviviale et efficace pour la programmation des examens. Essayez notre application dès aujourd'hui ! Si vous avez des questions ou des commentaires, n'hésitez pas à utiliser notre formulaire de contact. Votre contribution est précieuse pour nous permettre d'améliorer continuellement cette plateforme.
           </p>
         </div>
-            <form className='w-1/2 mt-4 rounded-xl bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 px-8 pt-6 pb-8'>
+            <form className={`w-3/4 mt-4 rounded-xl border border-gray-200  px-8 pt-6 pb-8 ${theme === 'dark' ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gray-400'}`}>
               <div className='mb-4'>
                 <label className='block text-gray-300 text-sm font-bold mb-2' htmlFor='email'>
                   E-mail
