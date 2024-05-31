@@ -30,7 +30,7 @@ export const fetchData = async (
 ) => {
   const res = await axios.get(url, { params: filters });
   const data = res.data;
-
+  console.log(data);
   if (data.length === 0) {
     throw new Error(
       "Aucun planning correspondant aux filtres sélectionnés ❌📅"

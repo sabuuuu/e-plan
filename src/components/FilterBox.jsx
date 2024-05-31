@@ -33,7 +33,7 @@ const FilterBox = ({
          )}`}
         styles={getSelectStyles(theme, customStyles)}
       />
-      <ErrorComponent errorMessage={error} />
+      {error && <ErrorComponent errorMessage={error} />}
     </div>
   );
 };

@@ -7,10 +7,9 @@ import LogoI from "/assets/unilogo2.jpg";
 import { getThemeClass, checkFilters, fetchData } from "../utils/helpers.js";
 import {
   anneeOptions,
-  faculteOptions,
-  filiereOptions,
-  specialiteOptions,
   nonSupportedFaculites,
+  fac,
+  sessionType,
 } from "./../constants/options.js";
 
 import { ThemeContext } from "./ThemeContext";
@@ -34,6 +33,18 @@ function Home() {
     filters,
     setFilters,
   } = useHomeState();
+
+  const getDepartements = (faculte) => {
+    const selectedFaculte = fac.find((f) => f.value === faculte);
+    return selectedFaculte?.departements || [];
+  };
+
+  const getFilieres = (departement, departements) => {
+    const selectedDepartement = departements.find(
+      (d) => d.value === departement
+    );
+    return selectedDepartement?.filieres || [];
+  };
 
   const getBackgroundColor = (state) => {
     if (state.isSelected) {
@@ -97,24 +108,34 @@ function Home() {
       }
     };
 
+  const departements = useMemo(
+    () => getDepartements(filters.faculte),
+    [filters.faculte]
+  );
+
+  const filieres = useMemo(
+    () => getFilieres(filters.departement, departements),
+    [filters.departement, departements]
+  );
+
   const filterBoxData = [
     {
       handleChangeFn: handleChange("faculte"),
-      options: faculteOptions,
+      options: fac.map((f) => ({ value: f.value, label: f.label })),
       label: "Faculté",
       disabled: false,
       error: errorFac,
     },
     {
       handleChangeFn: handleChange("departement"),
-      options: specialiteOptions,
+      options: departements,
       label: "Département",
       disabled: nonSupportedFaculites.includes(filters.faculte),
       error: errorDep,
     },
     {
       handleChangeFn: handleChange("filiere"),
-      options: filiereOptions,
+      options: filieres,
       label: "Filière",
       disabled: nonSupportedFaculites.includes(filters.faculte),
       error: null,
@@ -123,7 +144,8 @@ function Home() {
       handleChangeFn: handleChange("annee"),
       options: anneeOptions,
       label: "Année",
-      disabled: nonSupportedFaculites.includes(filters.faculte),
+      disabled:
+        nonSupportedFaculites.includes(filters.faculte) || !filieres.length,
       error: null,
     },
     {
@@ -133,18 +155,16 @@ function Home() {
         { value: "2", label: "2" },
       ],
       label: "Semestre",
-      disabled: nonSupportedFaculites.includes(filters.faculte),
+      disabled:
+        nonSupportedFaculites.includes(filters.faculte) || !filieres.length,
       error: null,
     },
     {
       handleChangeFn: handleChange("type"),
-      options: [
-        { value: "Normal", label: "Normal" },
-        { value: "Rattrapage", label: "Rattrapage" },
-        { value: "Remplacement", label: "Remplacement" },
-      ],
+      options: sessionType,
       label: "Session",
-      disabled: nonSupportedFaculites.includes(filters.faculte),
+      disabled:
+        nonSupportedFaculites.includes(filters.faculte) || !filieres.length,
       error: null,
     },
   ];
@@ -153,6 +173,7 @@ function Home() {
     setIsFetching(true);
     try {
       checkFilters(filters);
+      console.log(filters);
       const data = await fetchData(filters);
       setPlannings(data);
       setErrorMessage(null);
@@ -182,7 +203,6 @@ function Home() {
         semestres.push(planning.semestre);
         sessions.push(planning.type);
       });
-
       return {
         exams,
         faculte: faculties,
@@ -236,7 +256,7 @@ function Home() {
             ))}
 
             <Button
-              isFetching={isFetching}
+              disabled={isFetching}
               onClick={getData}
               aria-label="Récupérer les plannings d'examen"
             />

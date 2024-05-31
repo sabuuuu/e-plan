@@ -10,7 +10,7 @@ const ErrorComponent = ({ errorMessage }) => {
   );
 };
 ErrorComponent.propTypes = {
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 export default ErrorComponent;
