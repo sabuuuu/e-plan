@@ -51,7 +51,7 @@ const Table = ({
   const examsDate = useMemo(() => extractProperty(exams, "date"), [exams]);
   const examsHeure = useMemo(() => extractProperty(exams, "time"), [exams]);
   const salles = useMemo(() => extractProperty(exams, "salle"), [exams]);
-  const profs = useMemo(() => extractProperty(exams, "prof"), [exams]);
+  const profs = useMemo(() => extractProperty(exams, "profs"), [exams]);
   return (
     <div className="w-full overflow-x-auto rounded-lg">
       <div className="align-middle inline-block min-w-full">
