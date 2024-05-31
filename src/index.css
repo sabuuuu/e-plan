@@ -1,5 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-inherit;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-pink-200 dark:bg-violet-600 rounded-xl;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-700;
+  }
+}
