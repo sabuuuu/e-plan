@@ -92,4 +92,7 @@ export const sessionType = [
   { value: "Rattrapage", label: "Rattrapage" },
   { value: "Remplacement", label: "Remplacement" },
 ];
-export const nonSupportedFaculites = ["Sciences de la nature et de la vie"];
+export const nonSupportedFaculites = [
+  "Sciences de la nature et de la vie",
+  "Technologie",
+];

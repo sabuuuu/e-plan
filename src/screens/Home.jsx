@@ -33,7 +33,6 @@ function Home() {
     filters,
     setFilters,
   } = useHomeState();
-
   const getDepartements = (faculte) => {
     const selectedFaculte = fac.find((f) => f.value === faculte);
     return selectedFaculte?.departements || [];
@@ -173,7 +172,6 @@ function Home() {
     setIsFetching(true);
     try {
       checkFilters(filters);
-      console.log(filters);
       const data = await fetchData(filters);
       setPlannings(data);
       setErrorMessage(null);
@@ -213,7 +211,6 @@ function Home() {
         session: sessions,
       };
     }, [plannings]);
-
   return (
     <div
       className={`font-body flex flex-col min-h-screen ${getThemeClass(
